@@ -327,7 +327,7 @@
 </section><!-- End Portfolio Section -->
 
 <!-- ======= Team Section ======= -->
-<section id="team" class="team section-bg">
+<section id="team" class="team">
   <div class="container" data-aos="fade-up">
 
     <div class="section-title">
@@ -336,18 +336,13 @@
       <p>They are dedicated and hardworkers, as well as the backbone of the company.</p>
     </div>
 
-    <div class="row">
-      
+    <div class="row" style="display: flex; gap: 2em; align-items:center; justify-items: center; overflow: hidden;">
       {% for item in team %}
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-        <div class="member">
-          <img src="{% static 'img/team/team' %}-{{forloop.counter0|divisibleby:5|add:1}}.jpg" alt="">
-          <h4>{{ item.user.first_name|title }} {{ item.user.last_name|title }}</h4>
-          <span>{{ item.proffession|upper }}</span>
-          <p>
-            {{ item.info }}
-          </p>
-          {{item}}
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" style="box-shadow: 0 0 0.2em rgba(0,0,0,0.4); margin: 1em; padding: 1em;">
+        <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+          <h4 class="title"><a href="">{{ item.user.first_name|title }} {{ item.user.last_name|title }}</a></h4>
+          <h5 class="title"><a href="">{{ item.proffession }}</a></h5>
+          <p class="description">{{ item.info }}</p>
         </div>
       </div>
       {% endfor %}
