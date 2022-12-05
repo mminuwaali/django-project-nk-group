@@ -8,10 +8,13 @@ def user_profile_upload(self, image) -> str:
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile = models.FileField(upload_to=user_profile_upload)
+    # profile = models.FileField(upload_to=user_profile_upload)
     team_member = models.BooleanField(default=False)
-    proffession = models.CharField(max_length=50)
+    proffession = models.CharField(max_length=50,default='Member')
     info = models.TextField(default='')
+    
+    def __str__(self):
+        return self.user.first_name
     
 class SocialMedia(models.Model):
     icon = models.ForeignKey(Icon, on_delete=models.CASCADE)

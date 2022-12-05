@@ -290,8 +290,8 @@
   <div class="container" data-aos="fade-up">
 
     <div class="section-title">
-      <h2>Portfolio</h2>
-      <h3>Check our <span>Store</span></h3>
+      <h2>Store</h2>
+      <h3>Check our <span>Store</span>.</h3>
       <p>Get the best from us by choosing the right product.</p>
     </div>
 
@@ -341,12 +341,13 @@
       {% for item in team %}
       <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
         <div class="member">
-          <img src="{{ item.profile.url }}" alt="">
+          <img src="{% static 'img/team/team' %}-{{forloop.counter0|divisibleby:5|add:1}}.jpg" alt="">
           <h4>{{ item.user.first_name|title }} {{ item.user.last_name|title }}</h4>
           <span>{{ item.proffession|upper }}</span>
           <p>
             {{ item.info }}
           </p>
+          {{item}}
         </div>
       </div>
       {% endfor %}
